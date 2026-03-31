@@ -29,7 +29,7 @@ public class DataInitializer {
                 testAdmin.setActive(true);
 
                 userRepository.save(testAdmin);
-                System.out.println("✅ Test Admin created: admin@test.com");
+                System.out.println("Test Admin created: admin@test.com");
             }
         };
     }

@@ -87,7 +87,7 @@ public class CounterServiceImpl implements ICounterService {
         Counter counter = counterRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Counter not found"));
         User agent = userRepository.findById(agentId).orElseThrow(() -> new EntityNotFoundException("Agent not found"));
 
-        if (counter.getAgent() != null && !counter.getAgent().equals(agent)) {
+        if (counter.getAgent() != null && counter.isActive() && !counter.getAgent().equals(agent)) {
             throw new RuntimeException("This counter is already occupied by another agent");
         }
         counter.setAgent(agent);

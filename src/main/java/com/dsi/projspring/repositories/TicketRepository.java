@@ -16,6 +16,8 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     List<Ticket> findByClientId(Long clientId);
 
     Optional<Ticket> findFirstByStatusAndAgencyIdAndAppointmentDateBetweenOrderByTimeCreatedAsc(Status status, Long agencyId, LocalDateTime start, LocalDateTime end);
+    Optional<Ticket> findFirstByStatusInAndAgencyIdAndAppointmentDateBetweenOrderByTimeCreatedAsc(List<Status> statuses, Long agencyId, LocalDateTime start, LocalDateTime end);
+
 
     Optional<Ticket> findByCounterIdAndStatus(Long counterId, Status status);
 
